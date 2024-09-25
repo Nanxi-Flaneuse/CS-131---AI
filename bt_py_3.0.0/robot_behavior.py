@@ -101,11 +101,7 @@ tree_root = bt.Priority(
     ]
 )
 '''QUESTION'''
-# 1. how to implement the priority queue - you implement it yourself
-# 2. are we supposed to implement the Go HOME and ChARGE classes ourselves? Yes. Can just be a print statement
-# 3. how does the battery level change every second? you define it
-# 4. if priority subtree1 is the tree root, then is subtree2 the child of subtree1 and subtree3 that of subtree2
-# 5. why are we using the selection composite in line 25? - This is just an example
+
 
 # Store the root node in a behavior tree instance
 robot_behavior = btl.BehaviorTree(tree_root)

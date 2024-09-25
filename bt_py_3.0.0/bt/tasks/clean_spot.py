@@ -17,3 +17,5 @@ class CleanSpot(btl.Task):
         self.print_message('Cleaning Dusty Spot')
 
         return self.report_succeeded(blackboard)
+    '''QUESTION'''
+    # should I put a timer in here?
