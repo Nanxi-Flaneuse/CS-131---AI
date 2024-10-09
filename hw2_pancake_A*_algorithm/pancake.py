@@ -141,39 +141,46 @@ def get_solution(node):
 
 # search function that performs a search when given a list of numbers in any order from 1 to 10 and the type of algorithm
 def search(pancakes, type):
+    # checks if the input is valid
+    if sorted(pancakes) == [1,2,3,4,5,6,7,8,9,10] and (type in ['a*','ucs']):
     # initialize the frontier with a list of back and forward cost for each node
-    frontier = PriorityQueue()
-    for i in range(len(pancakes)-1):
-          # each priority node contains 4 things: cost of the action, action, resulted state, and previous state
-          frontier.insert(Pancake(None,i, pancakes,type))#(total_cost(i, pancakes),i, flip(i, pancakes), pancakes))
-    print('frontier initialized')
-    # solution = Solution()
-    visited = Visited()
-    choice = Pancake(None, 9, pancakes,type)
-    print('searching begins')
-    while choice.get_heur() != 0:
-        # print('frontier -------------------------------------------')
-        # print(frontier)
-        if len(frontier.queue) == 0:
-            return None
-        else:
-            # pop an element off the priority queue. append it to visited
-            choice = frontier.delete()
-            visited.append(choice)
-
-            # checks if choice is the goal state
-            if choice.get_heur() == 0:
-                # get path
-                solution = get_solution(choice)
-                print('number of steps:',str(len(solution)))
-                return solution
+        frontier = PriorityQueue()
+        for i in range(len(pancakes)-1):
+            # each priority node contains 4 things: cost of the action, action, resulted state, and previous state
+            frontier.insert(Pancake(None,i, pancakes,type))
+        print('frontier initialized')
+        # solution = Solution()
+        visited = Visited()
+        choice = Pancake(None, 9, pancakes,type)
+        print('searching begins')
+        while choice.get_heur() != 0:
+            if len(frontier.queue) == 0:
+                return None
             else:
-                frontier = update_frontier(frontier, choice, visited, type)
+                # pops an element off the priority queue. append it to visited
+                choice = frontier.delete()
+                visited.append(choice)
+
+                # checks if choice is the goal state
+                if choice.get_heur() == 0:
+                    # get path
+                    solution = get_solution(choice)
+                    print('number of steps:',str(len(solution)))
+                    return solution
+                else:
+                    frontier = update_frontier(frontier, choice, visited, type)
+    else:
+        print('Invalid input. The pancake stack should be a list of numbers from 1 to 10 in any order. The algorithm type input should only be a* or ucs')
+        return None
+        
 
 if __name__ == '__main__':
+    print(search([10,9,8,6,2,3,1],'a*'))
+    print(search([10,9,8,6,7,5,4,2,3,1],'a star'))
     print(search([10,9,8,6,7,5,4,2,3,1],'a*'))
     print(search([10,9,8,7,6,5,4,2,3,1],'ucs'))
     print(search([7,3,5,8,2,9,1,4,6,10],'a*'))
+
 
 
 

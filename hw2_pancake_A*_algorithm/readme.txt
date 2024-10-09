@@ -1,3 +1,6 @@
-1. user input - the user should use the search function to initiate a pancake search. The search function takes in two arguments - a list of pancakes (numbers 1 - 10 in any order) and a string that tells the function what type of search the user wants - A star or UCS. The string should only be either "a*" or "ucs".
-2. how to interpret the output - the search function prints out the number of steps needed to reach the goal and output the specific steps needed to be taken. Each step is formatted as a action and present state tuple. Performing an action on the present state will result in a new state.
-3. the ucs algorithm may take very long time to search through pancake stacks.
+1. running the file - the file already contains some sample commands for A star and UCS search around line 178. Simply run the file and you should be able to see some results
+2. user input - the user should use the search function to initiate a pancake search. The search function takes in two arguments - a list of pancakes (numbers 1 - 10 in any order) and a string that tells the function what type of search the user wants - A star or UCS. The string should only be either "a*" or "ucs".
+3. how to interpret the output - the search function prints out the number of steps needed to reach the goal and output the specific steps needed to be taken. Each step is formatted as a action and present state tuple. Performing an action on the present state will result in a new state.
+4. the ucs algorithm may take very long time to search through pancake stacks.
+5. for the A star algorithm, gap heuristics is used. The backward cost function of the A star is actually a uniform cost of 0 across all actions.
+6. the ucs algorithm has a uniform backward cost of 1 across all actions.
