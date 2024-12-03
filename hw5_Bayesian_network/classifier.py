@@ -25,7 +25,7 @@ class bayesian_classifier():
                 classification.append('p')
             for d in self.data[1:]:
                 # calculates rate of change in speed for classification
-                curr_data = (d - prev_data)/prev_data
+                curr_data = (d - prev_data)/prev_data 
                 # calculates the likelihood of the current state
                 p_curr_bird = (p_prev_bird*0.9 + p_prev_plane*0.1) * b_speed_likelihood(d) * b_feature_likelihood(curr_data)
                 p_curr_plane = (p_prev_plane*0.9 + p_prev_bird*0.1) * p_speed_likelihood(d) * p_feature_likelihood(curr_data)
