@@ -1,0 +1,1 @@
+1. classification code of flowers: (0,0,1): Iris-setosa. (0,1,0): Iris-versicolor. (1,0,0): Iris-virginica
